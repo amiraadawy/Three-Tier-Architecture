@@ -1,4 +1,13 @@
 
+using BusinessLogicLayer;
+using DataAcessLayer;
+using DataAcessLayer.Data;
+using DataAcessLayer.Entities;
+using DataAcessLayer.Interfaces;
+using DataAcessLayer.Repositories;
+using Microsoft.EntityFrameworkCore;
+using System;
+
 namespace PresentionLayer
 {
     public class Program
@@ -8,6 +17,9 @@ namespace PresentionLayer
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
+            // Layered Dependency Injection
+            builder.Services.AddApplication();
+            builder.Services.AddDataAccess(builder.Configuration.GetConnectionString("DefaultConnection"));
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
