@@ -2,7 +2,6 @@ Three-Tier ASP.NET Core Application with CQRS
 
 This project is a sample implementation of a Three-Tier Architecture in ASP.NET Core using CQRS with MediatR, Entity Framework Core, and SQL Server.
 
-📂 Project Structure
 MyApp.sln
 │
 ├── 📂 PresentationLayer     # ASP.NET Core Web API (controllers, Program.cs)
@@ -10,6 +9,8 @@ MyApp.sln
 ├── 📂 ApplicationLayer      # Business logic, CQRS (Commands, Queries, DTOs, Handlers)
 │
 ├── 📂 DataAccessLayer       # EF Core DbContext, Entities, Repositories, UnitOfWork
+│
+└── 📂 Domain (optional)     # Core entities (if separated)
 
 ⚙️ Technologies Used
 
@@ -51,13 +52,10 @@ cd PresentationLayer
 dotnet run
 
 
-Navigate to Swagger UI:
-👉 https://localhost:5001/swagger
-
 📌 Example API Endpoints
 Customers
 
-GET /api/customers → Get all customers
+GET /api/ Get customers → Get all customers
 
 GET /api/customers/{id} → Get customer by ID
 
