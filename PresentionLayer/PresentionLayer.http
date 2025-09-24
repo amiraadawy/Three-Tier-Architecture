@@ -1,0 +1,6 @@
+@PresentionLayer_HostAddress = http://localhost:5167
+
+GET {{PresentionLayer_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
