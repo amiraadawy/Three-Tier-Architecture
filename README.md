@@ -2,16 +2,6 @@ Three-Tier ASP.NET Core Application with CQRS
 
 This project is a sample implementation of a Three-Tier Architecture in ASP.NET Core using CQRS with MediatR, Entity Framework Core, and SQL Server.
 
-MyApp.sln
-│
-├── 📂 PresentationLayer     # ASP.NET Core Web API (controllers, Program.cs)
-│
-├── 📂 ApplicationLayer      # Business logic, CQRS (Commands, Queries, DTOs, Handlers)
-│
-├── 📂 DataAccessLayer       # EF Core DbContext, Entities, Repositories, UnitOfWork
-│
-└── 📂 Domain (optional)     # Core entities (if separated)
-
 ⚙️ Technologies Used
 
 ASP.NET Core 8 Web API
