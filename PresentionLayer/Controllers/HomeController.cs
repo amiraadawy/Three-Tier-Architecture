@@ -29,6 +29,21 @@ namespace PresentionLayer.Controllers
             }
                
         }
+        [HttpGet("customers/{id}")]
+        public async Task<IActionResult> GetCustomerById(int id)
+        {
+            try
+            {
+                var customer = await _mediator.Send(new GetCustomerQuery(id));
+                return Ok(customer);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+
 
     }
 }

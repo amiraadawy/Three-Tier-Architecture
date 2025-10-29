@@ -1,6 +1,7 @@
 ﻿using DataAcessLayer.Data;
 using DataAcessLayer.Entities;
 using DataAcessLayer.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,13 @@ namespace DataAcessLayer.Repositories
         {
             _context = context;
         }
+
+        public async Task<Customer> GetCustomerById(int id)
+        { 
+            return await _context.Customers.FirstOrDefaultAsync(c=>c.Id==id);
+
+        }
+
         public async Task<IEnumerable<Customer>> GetCustomers()
         {
             IEnumerable<Customer> customers = _context.Customers.ToList();
