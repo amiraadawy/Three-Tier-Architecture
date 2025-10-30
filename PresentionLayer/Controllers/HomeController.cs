@@ -1,4 +1,5 @@
 ﻿
+using BusinessLogicLayer.Commends.Custmers;
 using BusinessLogicLayer.Queries.Customers;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -35,6 +36,20 @@ namespace PresentionLayer.Controllers
             try
             {
                 var customer = await _mediator.Send(new GetCustomerQuery(id));
+                return Ok(customer);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+        }
+        [HttpPost("customers")]
+        public async Task<IActionResult> AddCustomer([FromBody] AddCustomerCommand command)
+        {
+            try
+            {
+                var customer = await _mediator.Send(command);
                 return Ok(customer);
             }
             catch (Exception ex)

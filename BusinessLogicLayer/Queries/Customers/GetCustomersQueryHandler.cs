@@ -18,7 +18,7 @@ namespace BusinessLogicLayer.Queries.Customers
         }
         public async Task<IEnumerable<CustomerDTO>> Handle(GetCustomersQuery request, CancellationToken cancellationToken)
         {
-            var List = await _unitOfWork.Customers.GetCustomers();
+            var List = await _unitOfWork.Customers.GetAll();
             return List.Select(c => new CustomerDTO
             {
                 Name = c.Name,

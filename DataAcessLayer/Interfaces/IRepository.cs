@@ -9,9 +9,9 @@ namespace DataAcessLayer.Interfaces
 {
     public interface IRepository<T> where T : class
     {
-        Task<IEnumerable<T>> GetCustomers();
-        Task<Customer> GetCustomerById(int id);
-        //Task AddCustomer(Customer customer);
+        Task<IEnumerable<T>> GetAll();
+        Task<T> GetById(int id);
+        Task<int> Add( T Ent);
         //Task UpdateCustomer(Customer customer);
         //Task DeleteCustomer(int id);
 

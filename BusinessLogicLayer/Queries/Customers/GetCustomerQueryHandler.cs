@@ -20,7 +20,7 @@ namespace BusinessLogicLayer.Queries.Customers
         {
             try
             {
-                var customer = _unitOfWork.Customers.GetCustomerById(request.id);
+                var customer = _unitOfWork.Customers.GetById(request.id);
                 if (customer == null)
                 {
                     throw new Exception("Customer not found");
