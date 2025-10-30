@@ -1,10 +1,12 @@
 
 using BusinessLogicLayer;
+using BusinessLogicLayer.Vaildations;
 using DataAcessLayer;
 using DataAcessLayer.Data;
 using DataAcessLayer.Entities;
 using DataAcessLayer.Interfaces;
 using DataAcessLayer.Repositories;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -25,7 +27,7 @@ namespace PresentionLayer
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-
+         
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

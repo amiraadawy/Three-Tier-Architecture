@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using BusinessLogicLayer.Vaildations;
+using FluentValidation;
+using MediatR;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +16,9 @@ namespace BusinessLogicLayer
         {
             // Add Business Logic Layer services here
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(DependencyInjection).Assembly));
+     
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(BusinessLogicLayer.behaviors.ValidationBehavior<,>));
+            services.AddValidatorsFromAssemblyContaining<AddCustomerCommandValidator>();
             return services;
         }
     }
