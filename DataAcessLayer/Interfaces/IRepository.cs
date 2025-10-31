@@ -12,7 +12,7 @@ namespace DataAcessLayer.Interfaces
         Task<IEnumerable<T>> GetAll();
         Task<T> GetById(int id);
         Task<int> Add( T Ent);
-        //Task UpdateCustomer(Customer customer);
+        void UpdateCustomer(Customer customer);
         //Task DeleteCustomer(int id);
 
 

@@ -37,6 +37,12 @@ namespace DataAcessLayer.Repositories
             IEnumerable<Customer> customers = _context.Customers.AsEnumerable();
             return customers;
         }
+
+        public void UpdateCustomer(Customer customer)
+        {
+          _context.Customers.Update(customer);
+          
+        }
         //Other methods For CRUD operations can be implemented here
     }
 }

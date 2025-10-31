@@ -10,5 +10,6 @@ namespace BusinessLogicLayer.Commends.Custmers
 {
     public  record AddCustomerCommand(string Name, string Email, string Phone, string Address):IRequest<CustomerDTO>
     {
+
     }
 }

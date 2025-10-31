@@ -23,7 +23,9 @@ namespace BusinessLogicLayer.Queries.Customers
             {
                 Name = c.Name,
                 Email = c.Email,
-                Id = c.Id
+                Id = c.Id,
+                Phone = c.Phone,
+                Address = c.Address
             }
             );
 

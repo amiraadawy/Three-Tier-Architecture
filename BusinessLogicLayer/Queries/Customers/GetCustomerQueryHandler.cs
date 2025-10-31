@@ -22,13 +22,15 @@ namespace BusinessLogicLayer.Queries.Customers
                 var customer =await _unitOfWork.Customers.GetById(request.id);
                 if (customer == null)
                 {
-                    throw new KeyNotFoundException("Customer not found");
+                throw new KeyNotFoundException($"Customer with ID {request.id} not found");
                 }
                 var customerDTO = new CustomerDTO
                 {
                     Id = customer.Id,
                     Name = customer.Name,
                     Email = customer.Email
+                    ,Phone = customer.Phone,
+                    Address = customer.Address
                 };
 
                 return customerDTO;

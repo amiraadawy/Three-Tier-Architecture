@@ -43,6 +43,22 @@ namespace PresentionLayer.Controllers
             
 
         }
+        [HttpPut("customers/{id}")]
+        public async Task<IActionResult> UpdateCustomer(int id, [FromBody] UpdateCustomerCommand command)
+        {
+
+            if (id != command.Id)
+            {
+                return BadRequest("ID in URL does not match ID in body");
+            }
+            var result = await _mediator.Send(command);
+            if (!result)
+            {
+                return NotFound($"Customer with ID {id} not found");
+            }
+            return NoContent();
+
+        }
 
 
     }
