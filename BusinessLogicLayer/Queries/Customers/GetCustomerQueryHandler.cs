@@ -16,29 +16,24 @@ namespace BusinessLogicLayer.Queries.Customers
         {
             _unitOfWork = unitOfWork;
         }
-        public Task<CustomerDTO> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
+        public async Task<CustomerDTO> Handle(GetCustomerQuery request, CancellationToken cancellationToken)
         {
-            try
-            {
-                var customer = _unitOfWork.Customers.GetById(request.id);
+           
+                var customer =await _unitOfWork.Customers.GetById(request.id);
                 if (customer == null)
                 {
-                    throw new Exception("Customer not found");
+                    throw new KeyNotFoundException("Customer not found");
                 }
                 var customerDTO = new CustomerDTO
                 {
-                    Id = customer.Result.Id,
-                    Name = customer.Result.Name,
-                    Email = customer.Result.Email
+                    Id = customer.Id,
+                    Name = customer.Name,
+                    Email = customer.Email
                 };
 
-                return Task.FromResult(customerDTO);
+                return customerDTO;
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
+           
         }
     }
 }

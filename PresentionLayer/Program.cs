@@ -8,6 +8,7 @@ using DataAcessLayer.Interfaces;
 using DataAcessLayer.Repositories;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using PresentionLayer.Middelware;
 using System;
 
 namespace PresentionLayer
@@ -29,7 +30,7 @@ namespace PresentionLayer
             builder.Services.AddSwaggerGen();
          
             var app = builder.Build();
-
+            app.UseMiddleware<ExceptionMiddleware>();
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
